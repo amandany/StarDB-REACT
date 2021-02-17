@@ -5,12 +5,14 @@ import RandomPlanet from '../random-planet';
 import ItemList from '../item-list';
 import PersonDetails from '../person-details';
 import ErrorButton from '../error-button';
-
 import './app.css';
 import ErrorIndicator from "../error-indicator";
 import PeoplePage from "../people-page";
+import SwapiService from "../../services/swapi-service";
 
 export default class App extends Component {
+
+    swapiService = new SwapiService();
 
     state = {
         showRandomPlanet: true,
@@ -43,6 +45,7 @@ export default class App extends Component {
 
             <div className="stardb-app">
                 <Header />
+
                 { planet }
 
                 <button
@@ -50,8 +53,10 @@ export default class App extends Component {
                     onClick={this.toggleRandomPlanet}>
                     Toggle Random Planet
                 </button>
+
                 <ErrorButton />
                 <PeoplePage />
+
             </div>
         );
     }
