@@ -1,51 +1,44 @@
-import React, { Component } from 'react';
-import Spinner from "../spinner";
+import React from 'react';
+import PropTypes from 'prop-types';
+
+import { withData } from '../hoc-helpers';
+import SwapiService from '../../services/swapi-service';
 import './item-list.css';
-import SwapiService from "../../services/swapi-service";
 
-export default class ItemList extends Component {
+const ItemList = (props) => {
 
-    state = {
-        itemList: null
-    }
+  const { data, onItemSelected, children: renderLabel } = props;
 
-    componentDidMount() {
+  const items = data.map((item) => {
+    const { id } = item;
+    const label = renderLabel(item);
 
-        const { getData } = this.props;
+    return (
+      <li className="list-group-item"
+          key={id}
+          onClick={() => onItemSelected(id)}>
+        {label}
+      </li>
+    );
+  });
 
-        getData()
-            .then( (itemList) => {
-                this.setState({
-                    itemList
-                });
-        });
-    }
+  return (
+    <ul className="item-list list-group">
+      {items}
+    </ul>
+  );
+};
 
-    renderItem(arr){
-        return(arr.map( (item) => {
-            const {id} = item;
-            const label = this.props.renderItem(item);
-            return <li className="list-group-item"
-                       key={id}
-                       onClick={ () => this.props.onItemSelected(id)}>
-                {label}
-            </li>
-        }))
-    }
+ItemList.defaultProps = {
+  onItemSelected: () => {}
+};
 
-    render() {
-        const {itemList} = this.state;
+ItemList.propTypes = {
+  onItemSelected: PropTypes.func,
+  data: PropTypes.arrayOf(PropTypes.object).isRequired,
+  children: PropTypes.func.isRequired
+};
 
-        if (!itemList) {
-            return <Spinner />;
-        }
+const { getAllPeople } = new SwapiService();
 
-        const item = this.renderItem(itemList);
-
-        return (
-            <ul className="item-list list-group">
-                {item}
-            </ul>
-        );
-    }
-}
+export default withData(ItemList, getAllPeople);
