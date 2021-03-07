@@ -17,7 +17,7 @@ export default class SwapiService {
         const res = await this.getResource(`/people/`);
         return res.results
             .map(this._transformPerson)
-            .slice(0, 5);
+            .slice(0, 9);
     };
 
     getPerson = async (id) => {
@@ -29,7 +29,7 @@ export default class SwapiService {
         const res = await this.getResource(`/planets/`);
         return res.results
             .map(this._transformPlanet)
-            .slice(0, 5);
+            .slice(0, 9);
     };
 
     getPlanet = async (id) => {
@@ -41,7 +41,7 @@ export default class SwapiService {
         const res = await this.getResource(`/starships/`);
         return res.results
             .map(this._transformStarship)
-            .slice(0, 5);
+            .slice(2, 9);
     };
 
     getStarship = async (id) => {
