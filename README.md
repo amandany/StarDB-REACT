@@ -6,9 +6,9 @@ Star DB - react app
 
 ![PLANETS](https://github.com/amandany/StarDB-REACT/raw/main/src/img/3-planets.png)
 
-!STARSHIPS](https://github.com/amandany/StarDB-REACT/raw/main/src/img/4-1-starships.png)
+!STARSHIPS](https://github.com/amandany/StarDB-REACT/raw/main/src/img/41-starships.png)
 
-![STARSHIP ITEM]](https://github.com/amandany/StarDB-REACT/raw/main/src/img/4-2-starship-item.png)
+![STARSHIP ITEM]](https://github.com/amandany/StarDB-REACT/raw/main/src/img/42-starshipitem.png)
 
 ![LOGIN](https://github.com/amandany/StarDB-REACT/raw/main/src/img/5-login.png)
 
