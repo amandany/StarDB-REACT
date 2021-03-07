@@ -4,8 +4,8 @@ import compose from './compose';
 import withChildFunction from './with-child-function';
 
 export {
-  withData,
-  withSwapiService,
-  compose,
-  withChildFunction
+    withData,
+    withSwapiService,
+    compose,
+    withChildFunction
 };

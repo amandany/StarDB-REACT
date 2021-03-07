@@ -10,7 +10,7 @@ const SecretPage = ({isLogIn}) => {
     }
 
     return (
-        <Redirect to="/login" />
+        <Redirect to="/login"/>
     )
 }
 
